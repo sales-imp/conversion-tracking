@@ -9,7 +9,7 @@ In the checkout page a var is found named s.products (Omniture Analytics). It's 
 
 == What belongs to which tracking system? ==
 
-**** UNIVERSAL ANALYTICS ****
+UNIVERSAL ANALYTICS
 <pre>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -30,7 +30,7 @@ ga('ecommerce:addItem', {
         'quantity': productList[e].count // how many items of this type were bought
       });
 </pre>
-**** FACEBOOK ANALYTICS ****
+FACEBOOK ANALYTICS
 <pre>
 (function() {
   var _fbq = window._fbq || (window._fbq = []);
@@ -45,9 +45,9 @@ window._fbq = window._fbq || [];
 
 window._fbq.push(['track', 'FACEBOOK_TRACKING_ID', {'value':productList[e].price,'currency':'USD'}]);
 </pre>
-**** GOOGLE REMARKETING TAG ****
+GOOGLE REMARKETING TAG
 <pre>
-<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
+<"script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></"script>
 
 window.google_trackConversion({
         google_conversion_id: GOOGLE_CONVERSION_ID,
