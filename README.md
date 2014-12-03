@@ -47,7 +47,7 @@ window._fbq.push(['track', 'FACEBOOK_TRACKING_ID', {'value':productList[e].price
 </pre>
 GOOGLE REMARKETING TAG
 <pre>
-<"script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></"script>
+script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8">/script
 
 window.google_trackConversion({
         google_conversion_id: GOOGLE_CONVERSION_ID,
