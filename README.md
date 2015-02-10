@@ -1,18 +1,19 @@
 conversion-tracking
 ===================
 
-[IMPORTANT] This script only works if javascript is enabled in checkout. This won't have an effect as long as js was not manually activated by someone from Spreadshirt Sales-Imp.
+*[IMPORTANT]* This script only works if javascript is enabled in checkout. This won't have an effect as long as js was not manually activated by someone from Spreadshirt Sales-Imp.
 
 Shop Footer JS code to collect adobe omniture data on the checkout page and transform it into universal analytics (google), adwords conversion tracking (google) and facebook tracking. You'll need to replace some placeholders with your tracking IDs.
 
-== How it works ==
+## How it works
 
 In the checkout page a var is found named s.products (Omniture Analytics). It's a string containing all orders with their productID, name, total price and quantity. The script converts this string back to an array of item objects conaining id, name, unit price and quantity. It then sends each item to the tracking systems.
 
-== What belongs to which tracking system? ==
+## What belongs to which tracking system?
 
-UNIVERSAL ANALYTICS
-<pre>
+### UNIVERSAL ANALYTICS
+
+```
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -31,9 +32,11 @@ ga('ecommerce:addItem', {
         'price': productList[e].price, // single item price
         'quantity': productList[e].count // how many items of this type were bought
       });
-</pre>
-FACEBOOK ANALYTICS
-<pre>
+```
+
+### FACEBOOK ANALYTICS
+
+```js
 (function() {
   var _fbq = window._fbq || (window._fbq = []);
   if (!_fbq.loaded)
@@ -46,10 +49,12 @@ FACEBOOK ANALYTICS
 window._fbq = window._fbq || [];
 
 window._fbq.push(['track', 'FACEBOOK_TRACKING_ID', {'value':productList[e].price,'currency':'USD'}]);
-</pre>
-GOOGLE REMARKETING TAG
-<pre>
-script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8">/script
+```
+
+### GOOGLE REMARKETING TAG
+
+```html
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8">/script
 
 window.google_trackConversion({
         google_conversion_id: GOOGLE_CONVERSION_ID,
@@ -60,7 +65,6 @@ window.google_trackConversion({
         },
         google_remarketing_only: true
       });
-</pre>
-####################################################################################
+```
 
-You can safely remove the entries of a tracking system if not needed.
+*You can safely remove the entries of a tracking system if not needed.*
